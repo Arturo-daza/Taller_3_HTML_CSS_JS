@@ -1,52 +1,53 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registrar producto</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
     <div class="container">
-        <nav>
+      <nav>
+        <a href="inventory_form.html">registrar inventario</a>
+        <a href="inventory.html">Ver inventario</a>
+        <a href="employees_form.html">registrar empleado</a>
+        <a href="employees.html">Ver empleados</a>
+      </nav>
+      <h2>Registrar producto</h2>
+      <form action="employees.html" method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required />
 
-            <a href="inventory_form.html">registrar inventario</a>
-            <a href="inventory.html">Ver inventario</a>
-            <a href="employees_form.html">registrar empleado</a>
-            <a href="employees.html">Ver empleados</a>
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido" required />
 
-        </nav>
-        <h2>Registrar producto</h2>
-        <form action="employees.html" method="post">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" name="email" required />
 
-            <label for="apellido">Apellido:</label>
-            <input type="text" id="apellido" name="apellido" required>
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" required />
 
-            <label for="email">Correo Electrónico:</label>
-            <input type="email" id="email" name="email" required>
+        <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+        <input
+          type="date"
+          id="fechaNacimiento"
+          name="fechaNacimiento"
+          required
+        />
 
-            <label for="telefono">Teléfono:</label>
-            <input type="tel" id="telefono" name="telefono" required>
+        <label for="puesto">Puesto:</label>
+        <select id="puesto" name="puesto">
+          <option value="cajero">Cajero</option>
+          <option value="seguridad">Seguridad</option>
+          <option value="administracion">Administracion</option>
+          <option value="aseo">Aseo</option>
+        </select>
 
-            <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-            <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
-
-            <label for="puesto">Puesto:</label>
-            <select id="puesto" name="puesto">
-                <option value="cajero">Cajero</option>
-                <option value="seguridad">Seguridad</option>
-                <option value="administracion">Administracion</option>
-                <option value="aseo">Aseo</option>
-            </select>
-
-            <button type="submit">Registrar Empleado</button>
-        </form>
+        <button type="submit">Registrar Empleado</button>
+      </form>
     </div>
-    
-    <footer>
-        © 2023 NTD | Arturo Daza, Jean veneco, Alejandro
-    </footer>
-</body>
+
+    <footer>© 2023 NTD | Arturo Daza, Jean veneco, Alejandro</footer>
+  </body>
 </html>
