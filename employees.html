@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Empleados</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <a href="inventory_form.html">registrar inventario</a>
+        <a href="inventory.html">Ver inventario</a>
+        <a href="employees_form.html">registrar empleado</a>
+        <a href="employees.html">Ver empleados</a>
+      </nav>
+      <h2>Registrar producto</h2>
+      <h1>Empleados</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Correo Electrónico</th>
+            <th>Teléfono</th>
+            <th>Fecha de Nacimiento</th>
+            <th>Puesto</th>
+          </tr>
+        </thead>
+        <tbody id="listaEmpleados"></tbody>
+      </table>
+    </div>
+    <footer>© 2023 NTD | Arturo Daza, Jean Claus Barco, Alejandro León</footer>
+  </body>
+  <script>
+    const listaEmpleados = JSON.parse(localStorage.getItem('listaEmpleados'));
+    console.log(listaEmpleados);
+    const listaEmpleadosUI = document.getElementById('listaEmpleados');
+    const crearTabla = () => {
+      listaEmpleadosUI.innerHTML = '';
+      listaEmpleados.forEach((empleado) => {
+        listaEmpleadosUI.innerHTML += `
+          <tr>
+            <td>${empleado.nombre}</td>
+            <td>${empleado.apellido}</td>
+            <td>${empleado.email}</td>
+            <td>${empleado.telefono}</td>
+            <td>${empleado.fechaNacimiento}</td>
+            <td>${empleado.puesto}</td>
+          </tr>
+        `;
+      });
+    };
+    crearTabla();
+  </script>
+</html>
