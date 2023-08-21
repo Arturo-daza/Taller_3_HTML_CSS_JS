@@ -15,7 +15,7 @@
         <a href="employees.html">Ver empleados</a>
       </nav>
       <h2>Registrar producto</h2>
-      <form action="employees.html" method="post">
+      <form action="employees.html">
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required />
 
@@ -44,10 +44,33 @@
           <option value="aseo">Aseo</option>
         </select>
 
-        <button type="submit">Registrar Empleado</button>
+        <button onclick="crearEmpleado()">Registrar Empleado</button>
       </form>
     </div>
-
+    <script>
+        const crearEmpleado = () => {
+          const nombre = document.getElementById('nombre').value;
+          const apellido = document.getElementById('apellido').value;
+          const email = document.getElementById('email').value;
+          const telefono = document.getElementById('telefono').value;
+          const fechaNacimiento = document.getElementById('fechaNacimiento').value;
+          const puesto = document.getElementById('puesto').value;
+    
+          const empleado = {
+            nombre,
+            apellido,
+            email,
+            telefono,
+            fechaNacimiento,
+            puesto,
+          };
+    
+          const listaEmpleados = JSON.parse(localStorage.getItem('listaEmpleados'));
+          listaEmpleados.push(empleado);
+          localStorage.setItem('listaEmpleados', JSON.stringify(listaEmpleados));
+          window.location.replace('employees.html');
+        };
+    </script>
     <footer>© 2023 NTD | Arturo Daza, Jean Claus Barco, Alejandro León</footer>
   </body>
 </html>
