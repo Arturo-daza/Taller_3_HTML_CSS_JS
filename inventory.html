@@ -15,7 +15,46 @@
         <a href="employees.html">Ver empleados</a>
       </nav>
       <h2>Ver inventario</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Categoria</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+          </tr>
+        </thead>
+        <tbody id="listaInventario"></tbody>
+      </table>
     </div>
     <footer>© 2023 NTD | Arturo Daza, Jean Claus Barco, Alejandro León</footer>
+    <script>
+      const listaInventario = JSON.parse(
+        localStorage.getItem('listaInventario')
+      );
+      const listaInventarioUI = document.getElementById('listaInventario');
+      const crearTablaInventario = () => {
+        listaInventarioUI.innerHTML = '';
+        if (listaInventario.length === 0) {
+          listaInventarioUI.innerHTML = `
+            <tr>
+              <td colspan="4" style="text-align: center;">No hay productos registrados</td>
+            </tr>
+          `;
+          return;
+        }
+        listaInventario.forEach((producto) => {
+          listaInventarioUI.innerHTML += `
+            <tr>
+              <td>${producto.nombre}</td>
+              <td>${producto.categoria}</td>
+              <td>${producto.precio}</td>
+              <td>${producto.cantidad}</td>
+            </tr>
+          `;
+        });
+      };
+      crearTablaInventario();
+    </script>
   </body>
 </html>
