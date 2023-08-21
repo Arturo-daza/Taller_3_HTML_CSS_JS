@@ -38,6 +38,14 @@
     const listaEmpleadosUI = document.getElementById('listaEmpleados');
     const crearTabla = () => {
       listaEmpleadosUI.innerHTML = '';
+      if (listaEmpleados.length === 0) {
+        listaEmpleadosUI.innerHTML = `
+          <tr>
+            <td colspan="6" style="text-align: center;">No hay empleados registrados</td>
+          </tr>
+        `;
+        return;
+      }
       listaEmpleados.forEach((empleado) => {
         listaEmpleadosUI.innerHTML += `
           <tr>
